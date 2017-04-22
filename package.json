@@ -21,5 +21,9 @@
   "bugs": {
     "url": "https://github.com/fmsim/workflow/issues"
   },
-  "homepage": "https://github.com/fmsim/workflow#readme"
+  "homepage": "https://github.com/fmsim/workflow#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-sass": "^3.1.0"
+  }
 }
