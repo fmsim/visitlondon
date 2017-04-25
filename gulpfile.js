@@ -41,6 +41,13 @@ gulp.task('clean-scripts', function() {
     .pipe(clean());
 });
 
+/*
+gulp.task('clean-images', function() {
+  return gulp.src(APPPATH.img + '/*.{gif,jpg,png,tiff,*}', {read: false, force: true})
+    .pipe(clean());
+})
+*/
+
 gulp.task('sass', function() {
   var bootstrapCSS = gulp.src('./node_modules/bootstrap/dist/css/bootstrap.css');
   var sassFiles;
@@ -123,9 +130,10 @@ gulp.task('serve', ['sass'], function() {
 
 gulp.task('watch', ['serve', 'sass', 'clean-html', 'clean-scripts', 'scripts', 'moveFonts', 'images', 'html'], function() {
   gulp.watch([SOURCEPATHS.sassSource], ['sass']);
-  //gulp.watch([SOURCEPATHS.htmlSource], ['copy'])
-  gulp.watch([SOURCEPATHS.jsSource], ['scripts'])
-  gulp.watch([SOURCEPATHS.htmlSource, SOURCEPATHS.htmlPartialSource], ['html']);
+  //gulp.watch([SOURCEPATHS.htmlSource], ['copy']);
+  gulp.watch([SOURCEPATHS.jsSource], ['scripts']);
+  gulp.watch([SOURCEPATHS.imgSource], ['images']);
+  gulp.watch([SOURCEPATHS.htmlSource, SOURCEPATHS.htmlPartialSource], ['html', 'clean-html']);
 });
 
 gulp.task('default', ['watch']);
